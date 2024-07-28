@@ -9,8 +9,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     path('', include('ProyectoWebApp.urls')),
-    path('services/', include('Services.urls')),  
+    path('servicios/', include('ServicesApp.urls')),  
     path('blog/', include('blogApp.urls')),  
+    path('contacto/', include('ContactApp.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
