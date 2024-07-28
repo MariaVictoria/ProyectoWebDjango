@@ -1,22 +1,45 @@
 {% load static %}
 
-<footer>
-    <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo" width="100">
-    <p>&copy; 2024 Mi Sitio Web. Maria Victoria.</p>
+        <!-- Footer -->
+        <footer class="footer text-faded text-center py-5">
+          <div class="container">
+            <p class="m-0">
+              <a href="#" class="link">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              <a href="#" class="link">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+              <a href="#" class="link">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+          </p>
+            <p class="m-0 mbt">
+              <a href="sample.html" class="link">Política de privacidad</a> ·
+              <a href="sample.html" class="link">Aviso legal</a> ·
+              <a href="sample.html" class="link">Cookies</a>
+        </p>
+            
+          </div>
+     
+
+          
+    <img src="{% static 'ProyectoWebApp/img/logo.png' %}" alt="Logo" class="logo" width="100">
+    <p  class="m-0 mbt1">&copy; 2024 Gestión de Pedidos. Maria Victoria.</p>
     <p>Todos los derechos reservados.</p>
     <ul>
-        <li><a href="{% url 'home' %}">Inicio</a></li>
-        <li><a href="{% url 'admin:index' %}">Administración</a></li>
+      <li><a href="{% url 'contact' %}">Contacto</a></li>
+      <li><a href="{% url 'admin:index' %}">Administración</a></li>
+      <li><a href="https://github.com/MariaVictoria" class="fab fa-github fa-3x" style="color: cornsilk;"></a></li>
     </ul>
-    <ul>
-        <li>
-            <li><a href="{% url 'contact' %}">Contacto HTML</a></li>
-        </li>
-    </ul>   
-    <ul>
-        <li>
-           
-            <a href="https://github.com/MariaVictoria" class="fab fa-github fa-3x" style="color: #0e292c;"></a>
-        </li>
-    </ul>
+    
 </footer>

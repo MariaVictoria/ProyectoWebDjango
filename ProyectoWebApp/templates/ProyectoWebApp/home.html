@@ -1,21 +1,40 @@
-{% extends 'ProyectoWebApp/layouts/base.html' %}
-
+{% extends 'ProyectoWebApp/base.html' %}
 {% load static %}
+{%block content %}
 
-{% block title %}Inicio{% endblock %}
-
-{% block content %}
-<br><h1>María Victoria Urcola</h1><br>
-
-<div>
-    <div >
-        <h2>Implementación de Django</h2>
-        <img class="django-img" src="{% static 'img/django.png' %}" alt="Django Logo"> 
+<!-- Heading -->
+   <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{%static 'ProyectoWebApp/img/html.gif'%}" style="width:700;" alt="">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-upper">Innovación</span>
+            <span class="section-heading-lower">La mejor Inversión</span>
+          </h2>
+          <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi ullam amet voluptas fugiat suscipit cumque neque eos obcaecati incidunt reiciendis. Nam quae hic dolore doloremque quisquam blanditiis labore obcaecati ab.
+          </p>
+         
+        </div>
+      </div>
     </div>
-</div> 
+  </section>
+  
+    <!-- Message -->
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Compromiso total</span>
+                <span class="section-heading-lower">Garantizado</span>
+              </h2>
+              <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi ullam amet voluptas fugiat suscipit cumque neque eos obcaecati incidunt reiciendis. Nam quae hic dolore doloremque quisquam blanditiis labore obcaecati ab.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="django-description">
-    <br><h2>¿Qué es Django?</h2><br>
-    <p>Django es un software que puede utilizar para desarrollar aplicaciones web de forma rápida y eficiente. La mayoría de las aplicaciones web tienen varias funciones comunes, como la autenticación, la recuperación de información de una base de datos y la administración de cookies. Los desarrolladores tienen que codificar una funcionalidad similar en cada aplicación web que escriban. Django facilita su trabajo al agrupar las diferentes funciones en una gran colección de módulos reutilizables, llamada marco de aplicación web. Los desarrolladores utilizan el marco web de Django para organizar y escribir su código de manera más eficiente y reducir significativamente el tiempo de desarrollo web.</p>
-</div>
-{% endblock %}
+    {% endblock %}
