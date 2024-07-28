@@ -1,0 +1,22 @@
+{% load static %}
+
+<footer>
+    <img src="{% static 'img/logo.png' %}" alt="Logo" class="logo" width="100">
+    <p>&copy; 2024 Mi Sitio Web. Maria Victoria.</p>
+    <p>Todos los derechos reservados.</p>
+    <ul>
+        <li><a href="{% url 'home' %}">Inicio</a></li>
+        <li><a href="{% url 'admin:index' %}">Administración</a></li>
+    </ul>
+    <ul>
+        <li>
+            <li><a href="{% url 'contact' %}">Contacto HTML</a></li>
+        </li>
+    </ul>   
+    <ul>
+        <li>
+           
+            <a href="https://github.com/MariaVictoria" class="fab fa-github fa-3x" style="color: #0e292c;"></a>
+        </li>
+    </ul>
+</footer>

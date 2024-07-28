@@ -1,0 +1,236 @@
+@font-face {
+    font-family: 'Corona';
+    src: url(../fonts/Corona.ttf);
+}
+@font-face {
+    font-family: 'burtons';
+    src: url(../fonts/burtons.ttf);
+}
+
+:root{
+    --color-text:#04312a;
+    --color-nav-background: linear-gradient(#7AC4D1, #82a4aa);
+    --font-title:'burtons';
+    --font-body:'Corona';
+    --color-background:#83a89c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100%;
+    
+}
+p{
+    color: var(--color-text);
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 20px;
+}
+
+nav {
+    display: flex;
+    width: 100vw;
+    background: var(--color-nav-background);
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding-right: 20px;
+}
+
+nav img{
+    margin:2vw;
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width:100%;
+    
+}
+
+nav ul li{
+    padding: 2rem;
+    font-size: 1.5rem;
+    color: var(--color-text);
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: var(--color-text);
+    font-family: var(--font-title);
+    font-weight: 650;
+    font-size: 25px;
+}
+
+nav ul li a:hover{
+    color: var(--color-background);
+}
+
+main{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+    padding: 50px;
+    background-color: var(--color-background);
+   }
+/*home*/
+
+.about {
+    display: flex; 
+    align-items: center;
+   
+}
+
+.django {
+    margin-left:50px;
+    
+}
+.django-img {
+    max-width:350px; 
+}
+
+.random-img {
+    border: 2px solid black;
+   
+}
+.django-description {
+    margin-top: 20px; /* Adjust this value to increase or decrease the space */
+
+}
+
+/*porfolio*/
+
+.imagenes {
+    width:300px;  
+    height: 400px; 
+    border: 2px solid black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--color-text);
+    font-family: var(--font-body);
+}
+
+/*contact*/
+
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 16px;
+}
+.django-description input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-family: var(--font-title);
+}
+
+.django-description input[type="submit"]:hover {
+    background-color: #45a049;
+}
+/*django form*/ 
+.django-description {
+    font-family: var(--font-title);
+}
+
+.form-group {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 16px;
+}
+
+.form-group p {
+    margin-bottom: 15px; /* Espacio entre cada campo del formulario */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; /* Color de fondo del botón en hover */
+}
+
+/*footer*/
+
+footer {
+    width: 100vw;
+    background: var(--color-nav-background); 
+    min-height: 100px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center ;
+    font-family: var(--font-title);
+}
+footer img{
+    margin: 25px;
+}
+
+footer ul{
+    list-style-type: none;
+}
+
+footer ul li a{
+    text-decoration: none;
+    color: var(--color-text);
+    font-family: var(--font-title);
+    font-weight: 650;
+    font-size: 20px;
+}
+
+footer ul li a:hover{
+    color: var(--color-background);
+}
+ 
+footer p{
+    font-size: 10px;
+}
+
+
+
+

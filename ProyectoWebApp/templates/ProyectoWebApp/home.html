@@ -1,0 +1,21 @@
+{% extends 'ProyectoWebApp/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<br><h1>María Victoria Urcola</h1><br>
+
+<div>
+    <div >
+        <h2>Implementación de Django</h2>
+        <img class="django-img" src="{% static 'img/django.png' %}" alt="Django Logo"> 
+    </div>
+</div> 
+
+<div class="django-description">
+    <br><h2>¿Qué es Django?</h2><br>
+    <p>Django es un software que puede utilizar para desarrollar aplicaciones web de forma rápida y eficiente. La mayoría de las aplicaciones web tienen varias funciones comunes, como la autenticación, la recuperación de información de una base de datos y la administración de cookies. Los desarrolladores tienen que codificar una funcionalidad similar en cada aplicación web que escriban. Django facilita su trabajo al agrupar las diferentes funciones en una gran colección de módulos reutilizables, llamada marco de aplicación web. Los desarrolladores utilizan el marco web de Django para organizar y escribir su código de manera más eficiente y reducir significativamente el tiempo de desarrollo web.</p>
+</div>
+{% endblock %}
