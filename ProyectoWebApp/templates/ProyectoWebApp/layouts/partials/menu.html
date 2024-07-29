@@ -24,7 +24,7 @@
         <a class="nav-link text-uppercase text-expanded" href="{% url 'blog' %}">Blog</a>
       </li>
       <li class="nav-item {% if request.resolver_match.url_name == 'admin' %}active {% endif %} px-lg-4">
-        <a class="nav-link text-uppercase text-expanded" href="{% url 'admin:index' %}">Administración</a>
+        <a class="nav-link text-uppercase text-expanded" target="_blank" href="{% url 'admin:index' %}">Administración</a>
     </li>
       </ul>
     </div>

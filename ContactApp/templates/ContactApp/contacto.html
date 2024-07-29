@@ -3,7 +3,22 @@
 {% load static %}
 {%block content %}
 
-        Contact 
-        <div><p></p> </div>
-        {% endblock %}
+<section class ="contenedorFormulario form">
+        {% if 'valido' in request.GET %}
+        <p> Mensaje enviado exitosamente</p>
+        {% endif %}
+
+        <div >
+                
+                <form action="" method="POST">
+                        {% csrf_token %}
+                <table>
+                        {{ mi_formulario.as_table }}
+                </table>   
+                <button type="submit">Enviar</button>
+                </form>
+        </div>
+</section>
+ 
+{% endblock %}
 

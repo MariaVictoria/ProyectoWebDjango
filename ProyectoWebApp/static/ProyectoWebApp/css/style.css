@@ -306,3 +306,36 @@ ul.errorlist{
 .linksCategorias:hover{ 
   color: var(--color-text);
 }
+
+/* formulario contacto */
+.contenedorFormulario {
+  background-color: var(--color-background);
+  width: 50%;
+  margin: 10px auto;
+  border-radius: 5px;
+  padding: 1px 0px;
+}
+
+.contenedorFormulario form {
+  text-align: center;
+  color: cornsilk; /* Aplica el color al texto dentro del formulario */
+}
+
+.contenedorFormulario table {
+  margin: 20px auto; /* Asegura que la tabla esté centrada horizontalmente */
+  width: 50%; /* Ajusta el ancho de la tabla si es necesario */
+  border-collapse: collapse;
+}
+
+.contenedorFormulario th, .contenedorFormulario td {
+  color: cornsilk; /* Aplica el color a las celdas de la tabla */
+}
+
+.contenedorFormulario button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  color: var(--color-text);
+}
