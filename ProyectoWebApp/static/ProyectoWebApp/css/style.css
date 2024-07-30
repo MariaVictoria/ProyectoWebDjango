@@ -2,11 +2,11 @@
   --color-text:#04312a;
   --color-nav-background: linear-gradient(#83a89c, #7AC4D1);
   --color-background:#83a89c;
-  --bg-image-url: url('{% static "ProyectoWebApp/img/bg_main.jpg" %}');
+  --bg-image-url: url('{% static "ProyectoWebApp/img/comp.png" %}');
 }
 body {
   font-family: 'Lora';
-  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/bg_main.jpg");
+  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/comp.png");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
