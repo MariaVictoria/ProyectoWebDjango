@@ -23,8 +23,8 @@
                     <td>$ {{ value.precio }}</td>
                     <td>
                     
-                        <a href="{% url 'carro:agregar_producto' key %}" class="btn btn-sm btn-primary">+</a>
-                        <a href="{% url 'carro:restar_producto' key %}" class="btn btn-sm btn-primary">-</a>
+                        <a href="{% url 'carro:agregar_producto' key %}" class="btn btn-sm btn-success">+</a>
+                        <a href="{% url 'carro:restar_producto' key %}" class="btn btn-sm btn-danger">-</a>
 
                     </td>
                     <td>${{ value.precio|floatformat:2 }}</td> 
@@ -45,8 +45,13 @@
     <tfoot>
         <tr>
             <td colspan="5">  
-                <p style="color: antiquewhite;">Total : $ {{importe_total_carro}} </p>
+                <p style="color: antiquewhite;">Total : $ {{ importe_total_carro }} </p>
+            </td>
+            <td colspan="5"> 
+                <!-- Eliminar el parámetro `key` ya que no se necesita para limpiar el carrito -->
+                <a href="{% url 'carro:limpiar_carro' %}" class="btn btn-sm btn-danger">Limpiar Carro</a>
             </td>
         </tr>
     </tfoot>
+    
 </table>

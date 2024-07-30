@@ -2,11 +2,9 @@ class Carro:
     def __init__(self, request):
         self.request = request  
         self.session = request.session
-        carro=self.session.get('carro')
+        carro = self.session.get('carro')
         if not carro:
-            carro=self.session['carro'] = {}
-         
-
+            self.carro = self.session['carro'] = {}
         else:
             self.carro = carro
 
@@ -30,22 +28,19 @@ class Carro:
         self.guardar_carro()
         return True
 
-
     def guardar_carro(self):
         self.session['carro'] = self.carro
         self.session.modified = True
 
     def eliminar_producto(self, producto):
-        if(str(producto.id) in self.carro):
+        if str(producto.id) in self.carro:
             del self.carro[producto.id]
-
             self.guardar_carro()
-            
 
     def restar_producto(self, producto):
         for key, value in self.carro.items():
             if key == str(producto.id):
-                value['unidades'] = value['unidades'] - 1   
+                value['unidades'] -= 1   
                 if value['unidades'] < 1:
                     self.eliminar_producto(producto)
                 break
@@ -55,4 +50,3 @@ class Carro:
     def limpiar_carro(self):
         self.session['carro'] = {}
         self.session.modified = True
-        
