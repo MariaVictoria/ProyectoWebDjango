@@ -1,5 +1,6 @@
 from django.urls import path
 from TiendaApp import views
+from TiendaApp.models import Producto
 
 
 

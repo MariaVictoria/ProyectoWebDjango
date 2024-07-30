@@ -17,13 +17,18 @@
     <tbody>
         {% if request.session.carro %}
             {% for key, value in request.session.carro.items %}
-
                 <tr text="center">
                     <td>{{ value.nombre }}</td> 
                     <td>{{ value.unidades }}</td>
                     <td>$ {{ value.precio }}</td>
-                    <td><img src="{{ value.imagen_url }}" alt="{{ value.producto }}" style="width: 100px; height: auto;"></td> 
+                    <td>
+                    
+                        <a href="{% url 'carro:agregar_producto' key %}" class="btn btn-sm btn-primary">+</a>
+                        <a href="{% url 'carro:restar_producto' key %}" class="btn btn-sm btn-primary">-</a>
+
+                    </td>
                     <td>${{ value.precio|floatformat:2 }}</td> 
+                    <td><img src="{{ value.imagen }}" alt="{{ value.nombre }}" style="width: 100px; height: auto;"></td> 
                 </tr>
             {% endfor %}
         {% else %}
@@ -36,4 +41,12 @@
             </tr>
         {% endif %}
     </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="5">  
+                <p style="color: antiquewhite;">Total : $ {{importe_total_carro}} </p>
+            </td>
+        </tr>
+    </tfoot>
 </table>
