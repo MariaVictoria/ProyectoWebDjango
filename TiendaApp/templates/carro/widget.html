@@ -1,0 +1,38 @@
+<table class="table table-bordered" style="color:wheat">
+    <thead>
+        <tr>
+            <th colspan="5" class="text-center" style="background-color: rgb(0, 0, 0);">
+                Carro de compras
+            </th>
+        </tr>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+            <th>Suma</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% if request.session.carro %}
+            {% for key, value in request.session.carro.items %}
+                <tr>
+                    <td>{{ value.producto }}</td> 
+                    <td>{{ value.unidades }}</td>
+                    <td>{{ simbolo_moneda }}{{ value.precio }}</td>
+                    <td><img src="{{ value.imagen_url }}" alt="{{ value.producto }}" style="width: 100px; height: auto;"></td> 
+                    <td>{{ simbolo_moneda }}{{ value.precio|floatformat:2 }}</td> 
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="5">
+                    <div class="alert alert-danger text-center">
+                        Sin Productos
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
