@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blogApp',
     'ContactApp',
     'TiendaApp',
+    'carro',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'proyectoWebDjango_db',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '5432',
     }
