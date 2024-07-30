@@ -46,7 +46,13 @@ def restar_producto(self, producto):
     for key, value in self.carro.items():
         if key == str(producto.id):
             value['unidades'] = value['unidades'] - 1   
+            if value['unidades'] < 1:
+                self.eliminar(producto)
             break
 
     self.guardar_carro()
 
+def limpiar_carro(self):
+    self.session['carro'] = {}
+    self.session.modified = True
+    
