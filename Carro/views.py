@@ -11,7 +11,7 @@ def agregar_producto(request, producto_id):
     return redirect("tienda")
 
 
-def aliminar_producto(request, producto_id):
+def eliminar_producto(request, producto_id):
     carro = Carro(request)
     producto = Producto.objects.get(id=producto_id)
     carro.eliminar(producto)

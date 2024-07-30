@@ -17,12 +17,13 @@
     <tbody>
         {% if request.session.carro %}
             {% for key, value in request.session.carro.items %}
-                <tr>
-                    <td>{{ value.producto }}</td> 
+
+                <tr text="center">
+                    <td>{{ value.nombre }}</td> 
                     <td>{{ value.unidades }}</td>
-                    <td>{{ simbolo_moneda }}{{ value.precio }}</td>
+                    <td>$ {{ value.precio }}</td>
                     <td><img src="{{ value.imagen_url }}" alt="{{ value.producto }}" style="width: 100px; height: auto;"></td> 
-                    <td>{{ simbolo_moneda }}{{ value.precio|floatformat:2 }}</td> 
+                    <td>${{ value.precio|floatformat:2 }}</td> 
                 </tr>
             {% endfor %}
         {% else %}
