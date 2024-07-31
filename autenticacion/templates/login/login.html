@@ -4,16 +4,20 @@
 
 {% block content %}
 
+<!-- login/login.html -->
 
 <form  class="register" action="" method="POST">
     {% csrf_token %}
-    <div  class="registro" style="width: 75%; margin: auto;">
+    <div  class="registro" style="width: 75%; margin: auto;">    
         <div class="form-group" >
-            {{ form|crispy }}
+            {% if messages %}
+                {% for mensaje in messages %}
+                    <span class="alert alert-{{ message.tags }}"> {{ message }} </span><br>
+                {% endfor %}
+            {% endif %}
+            <br>{{ form|crispy }}
         </div>
-
         <button  class="btn btn-info" type="submit">Iniciar Sesión</button>
     </div>
 </form>
-
 {% endblock %}

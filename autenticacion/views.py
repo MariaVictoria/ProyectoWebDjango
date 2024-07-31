@@ -1,8 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.views.generic import View
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, authenticate
-from django.contrib.auth import login, logout
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
 
 # Create your views here.
 
@@ -40,14 +40,13 @@ def logear(request):
                 login(request, user)
                 return redirect('home')
             else:
-                for field, errors in form.errors.items():
-                    for error in errors:
-                        messages.error(request, f"{field}: {error}")
+                messages.error(request, 'Nombre de usuario o contraseña incorrectos.')
         else:
             for field, errors in form.errors.items():
                 for error in errors:
-                    messages.error(request, f"Informaciín incorrecta")
+                    messages.error(request, f"{field}: {error}")
+    else:
+        form = AuthenticationForm()  # Crear una instancia del formulario vacío
 
-
-    form=AuthenticationForm
+    
     return render(request, 'login/login.html',{'form':form})
