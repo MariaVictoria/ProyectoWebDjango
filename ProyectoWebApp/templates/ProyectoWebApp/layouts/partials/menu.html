@@ -17,6 +17,7 @@
       <li class="nav-item {% if request.resolver_match.url_name == 'tienda' %}active {% endif %} px-lg-4">
           <a class="nav-link text-uppercase text-expanded" href="{% url 'tienda' %}">Tienda</a>
       </li>
+     
       <li class="nav-item {% if request.resolver_match.url_name == 'contacto' %}active {% endif %}  px-lg-4">
           <a class="nav-link text-uppercase text-expanded" href="{% url 'contacto' %}">Contacto</a>
       </li>

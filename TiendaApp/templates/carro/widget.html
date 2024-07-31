@@ -1,16 +1,16 @@
-<table class="table table-bordered" style="color:wheat">
+<table class="table table-bordered" style="color:wheat; margin-top: 15px;">
     <thead>
         <tr>
-            <th colspan="5" class="text-center" style="background-color: rgb(0, 0, 0);">
+            <th colspan="5" class="text-center" style="background-color:#83a89c;">
                 Carro de compras
             </th>
         </tr>
         <tr>
             <th>Producto</th>
             <th>Cantidad</th>
+            <th></th>
             <th>Precio</th>
-            <th>Imagen</th>
-            <th>Suma</th>
+            <!--<th>Imagen</th>-->
         </tr>
     </thead>
 
@@ -20,7 +20,6 @@
                 <tr text="center">
                     <td>{{ value.nombre }}</td> 
                     <td>{{ value.unidades }}</td>
-                    <td>$ {{ value.precio }}</td>
                     <td>
                     
                         <a href="{% url 'carro:agregar_producto' key %}" class="btn btn-sm btn-success">+</a>
@@ -28,26 +27,30 @@
 
                     </td>
                     <td>${{ value.precio|floatformat:2 }}</td> 
-                    <td><img src="{{ value.imagen }}" alt="{{ value.nombre }}" style="width: 100px; height: auto;"></td> 
+                  
+                    
+                    <!--<td><img src="{{ value.imagen }}" alt="{{ value.nombre }}" style="width: 100px; height: auto;"></td>-->
                 </tr>
             {% endfor %}
         {% else %}
             <tr>
-                <td colspan="5">
+                <td colspan="4">
                     <div class="alert alert-danger text-center">
                         Sin Productos
                     </div>
+                   
                 </td>
+                 
             </tr>
         {% endif %}
     </tbody>
 
     <tfoot>
         <tr>
-            <td colspan="5">  
+            <td colspan="2">  
                 <p style="color: antiquewhite;">Total : $ {{ importe_total_carro }} </p>
             </td>
-            <td colspan="5"> 
+            <td colspan="2"> 
                 <!-- Eliminar el parámetro `key` ya que no se necesita para limpiar el carrito -->
                 <a href="{% url 'carro:limpiar_carro' %}" class="btn btn-sm btn-danger">Limpiar Carro</a>
             </td>

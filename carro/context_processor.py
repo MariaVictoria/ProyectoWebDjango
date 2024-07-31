@@ -1,8 +1,17 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
 def importe_total_carro(request):
     total = 0
     if request.user.is_authenticated:
-        # se usa get() para evitar KeyError si 'carro' no está en la sesión
-        carrito = request.session.get("carro", {})
-        for key, value in carrito.items():
-            total += float(value["precio"]) * value["unidades"]
+        carro = request.session.get('carro', {})
+        logger.debug(f"Carro en sesión: {carro}")
+        for key, value in carro.items():
+            precio = value.get("precio", 0)
+            try:
+                total += float(precio)
+            except ValueError:
+                logger.warning(f"Precio no convertible a float: {precio}")
+                
     return {"importe_total_carro": total}

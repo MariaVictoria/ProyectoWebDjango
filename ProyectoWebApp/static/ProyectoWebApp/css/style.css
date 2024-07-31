@@ -6,7 +6,7 @@
 }
 body {
   font-family: 'Lora';
-  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/comp.png");
+  background: linear-gradient(rgba(103, 80, 53, 0.398), rgba(245, 211, 101, 0.404)), url("../img/comp.png");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -161,7 +161,7 @@ p {
 .cta {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: rgb(242, 245, 240);
+  background-color: rgba(162, 183, 176, 0.373);
 }
 
 .cta .cta-inner {
@@ -339,3 +339,13 @@ ul.errorlist{
   background-color: #f2f2f2;
   color: var(--color-text);
 }
+
+ /* registro.css */
+.register{
+  margin-top: 15px;
+}
+.registro{
+ 
+  background-color: rgba(246, 246, 246, 0.839);
+}
+
