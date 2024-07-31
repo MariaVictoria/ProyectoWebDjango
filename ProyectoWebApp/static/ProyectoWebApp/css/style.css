@@ -306,6 +306,23 @@ ul.errorlist{
 .linksCategorias:hover{ 
   color: var(--color-text);
 }
+/*base- Autenticado */
+
+.autenticacion{
+  
+  text-align: right;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+ 
+}
+ 
+.autenticacion a{
+  font-size: 18px;
+  color: #04211d;
+  font-weight: 900
+  
+}
 
 /* formulario contacto */
 .contenedorFormulario {

@@ -25,6 +25,23 @@
         <span class="site-heading-lower">Gestión de Pedidos</span>
       </h1>
 
+<div class="autenticacion">
+  
+  {% if user.is_authenticated  %}
+
+  Hola, {{user.username}}  !! &nbsp;&nbsp; <a href="{% url 'cerrar_sesion' %}">Cerrar Sesión</a>
+
+  {% else %}
+  
+ <a href ="#">Login</a><br>
+  <br>  
+  
+  <a href ="{% url 'Autenticacion' %}">Registrate</a>
+
+  {% endif %}
+
+</div>
+</section> 
       <header>
         {% include 'ProyectoWebApp/layouts/partials/menu.html' %}
     </header>
