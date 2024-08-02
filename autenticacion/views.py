@@ -1,34 +1,53 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
+from django import forms
+from django.contrib.auth.models import User
 
-# Create your views here.
+# Define the custom user creation form
+class CustomUserCreationForm(UserCreationForm):
+    emailusuario = forms.EmailField(required=True, label="Email")
+    emailusuario_confirm = forms.EmailField(required=True, label="Confirm Email")
 
-class VRegistro(View):  
+    class Meta:
+        model = User
+        fields = ("username", "emailusuario", "emailusuario_confirm", "password1", "password2")
+
+    def clean_email_confirm(self):
+        emailusuario = self.cleaned_data.get('email')
+        emailusuario_confirm = self.cleaned_data.get('email_confirm')
+
+        if emailusuario != emailusuario_confirm:
+            raise forms.ValidationError("Emails don't match")
+
+        return emailusuario_confirm
+
+# View for user registration
+class VRegistro(View):
     def get(self, request):
-        form=UserCreationForm()
-        return render(request, 'registro/registro.html', {'form':form})
+        form = CustomUserCreationForm()
+        return render(request, 'registro/registro.html', {'form': form})
     
-    def post (self, request):
-        form=UserCreationForm(request.POST)
+    def post(self, request):
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            usuario=form.save()
+            usuario = form.save()
             login(request, usuario)
             return redirect("home")
-        
-        else: 
+        else:
             for field, errors in form.errors.items():
                 for error in errors:
                     messages.error(request, f"{field}: {error}")
             return render(request, 'registro/registro.html', {'form': form})
 
+# View to log out
 def cerrar_sesion(request):
     logout(request)
     return redirect("home")
 
-
+# View to log in
 def logear(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -36,7 +55,7 @@ def logear(request):
             nombre_usuario = form.cleaned_data.get('username')
             contra = form.cleaned_data.get('password')
             user = authenticate(username=nombre_usuario, password=contra)
-            if user is not None: #usuario no es nada == es algo
+            if user is not None:
                 login(request, user)
                 return redirect('home')
             else:
@@ -46,7 +65,6 @@ def logear(request):
                 for error in errors:
                     messages.error(request, f"{field}: {error}")
     else:
-        form = AuthenticationForm()  # Crear una instancia del formulario vacío
+        form = AuthenticationForm()
 
-    
-    return render(request, 'login/login.html',{'form':form})
+    return render(request, 'login/login.html', {'form': form})

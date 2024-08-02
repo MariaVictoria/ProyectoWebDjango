@@ -8,8 +8,8 @@
         <tr>
             <th>Producto</th>
             <th>Cantidad</th>
-            <th></th>
             <th>Precio</th>
+            
             <!--<th>Imagen</th>-->
         </tr>
     </thead>
@@ -19,14 +19,17 @@
             {% for key, value in request.session.carro.items %}
                 <tr text="center">
                     <td>{{ value.nombre }}</td> 
-                    <td>{{ value.unidades }}</td>
                     <td>
-                    
                         <a href="{% url 'carro:agregar_producto' key %}" class="btn btn-sm btn-success">+</a>
+                        {{ value.unidades }}
                         <a href="{% url 'carro:restar_producto' key %}" class="btn btn-sm btn-danger">-</a>
-
                     </td>
-                    <td>${{ value.precio|floatformat:2 }}</td> 
+                    <td>
+                        ${{ value.precio|floatformat:2 }} <br><br>
+                        
+                      
+                    </td>
+                    
                   
                     
                     <!--<td><img src="{{ value.imagen }}" alt="{{ value.nombre }}" style="width: 100px; height: auto;"></td>-->
@@ -44,17 +47,29 @@
             </tr>
         {% endif %}
     </tbody>
-
+    
     <tfoot>
         <tr>
             <td colspan="2">  
                 <p style="color: antiquewhite;">Total : $ {{ importe_total_carro }} </p>
             </td>
             <td colspan="2"> 
-                <!-- Eliminar el parámetro `key` ya que no se necesita para limpiar el carrito -->
+                
                 <a href="{% url 'carro:limpiar_carro' %}" class="btn btn-sm btn-danger">Limpiar Carro</a>
             </td>
         </tr>
+        
+        {% if request.session.carro.items %}
+            <tr>
+                <td colspan="5">
+                    <form action="{% url 'procesar_pedido' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success">Hacer Pedido</button>
+                    </form>
+                </td>
+            </tr>
+        {% endif %}
     </tfoot>
+    
     
 </table>

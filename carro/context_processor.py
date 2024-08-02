@@ -9,9 +9,12 @@ def importe_total_carro(request):
         logger.debug(f"Carro en sesión: {carro}")
         for key, value in carro.items():
             precio = value.get("precio", 0)
+    
             try:
                 total += float(precio)
             except ValueError:
                 logger.warning(f"Precio no convertible a float: {precio}")
-                
+    else:
+        total='Inicia sesión para ver el importe total'
+
     return {"importe_total_carro": total}

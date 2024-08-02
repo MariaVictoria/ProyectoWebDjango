@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pedido Confirmado</title>
+</head>
+<body>
+    
+    <h1>Gracias por su pedido, {{ nombreusuario }}!</h1><br>
+    <p>Su pedido ha sido recibido y está en proceso.</p><br>
+    <h2>Detalles del Pedido</h2><br>
+    N° de pedido: {{pedido.id}} <br>
+    <ul>
+        {% for linea in lineas_pedido %}
+            <li>{{ linea.producto.nombre }}: {{ linea.cantidad }} x ${{ linea.producto.precio }}</li><br>
+        {% endfor %}
+    </ul>
+    <br> <p>Total: ${{ pedido.total }}</p>
+</body>
+</html>
